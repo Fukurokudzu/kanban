@@ -16,21 +16,25 @@ def seed_entity(amount = SEEDS_AMOUNT, &blk)
   end
 end
 
-User.destroy_all
-Project.destroy_all
+# User.destroy_all
+# Project.destroy_all
 List.destroy_all
 Card.destroy_all
 
-User.create(email: 'sergei.fukurokudzu@gmail.com')
+# User.create(email: 'sergei.fukurokudzu@gmail.com')
 
-User.all.each do |user|
-  seed_entity { |i| Project.create(title: "test project #{i}", user_id: user.id) }
-end
+# User.all.each do |user|
+#   seed_entity { |i| Project.create(title: "test project #{i}", user_id: user.id) }
+# end
 
-Project.all.each do |project|
-  seed_entity { |i| List.create(title: "test list #{i}", project_id: project.id) }
-end
+# Project.all.each do |project|
+#   seed_entity { |i| List.create(title: "test list #{i}", project_id: project.id) }
+# end
+
+seed_entity { |i| List.create(title: "test list #{i}") }
+puts "#{List.all.count} lists created"
 
 List.all.each do |list|
   seed_entity { |i| Card.create(title: "test card #{i}", description: "impsum lorum #{i}", list_id: list.id) }
 end
+puts "#{Card.all.count} cards created"

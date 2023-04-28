@@ -4,11 +4,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  resources :user, shallow: true do
-    resources :project, shallow: true do
-      resources :list, shallow: true do
-        resources :card, shallow: true
-      end
-    end
+  resources :list do
+    resources :card
   end
 end

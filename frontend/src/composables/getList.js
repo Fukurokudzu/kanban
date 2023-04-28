@@ -1,16 +1,16 @@
 import { ref } from 'vue'
 
-const getUser = (id) => {
-  const user = ref([])
+const getList = (id) => {
+  const list = ref([])
   const error = ref(null)
   
   const load = async() => {
     try {
-      let data = await fetch(process.env.VUE_APP_API_SERVER + '/user/' + id)
+      let data = await fetch(process.env.VUE_APP_API_SERVER + '/list/' + id)
       if (!data.ok) {
         throw Error('no data available')
       }
-      user.value = await data.json()
+      list.value = await data.json()
     }
     catch (err) {
       error.value = err.message
@@ -18,7 +18,7 @@ const getUser = (id) => {
     }
   }
 
-  return { user, error, load }
+  return { list, error, load }
 }
 
-export default getUser
+export default getList

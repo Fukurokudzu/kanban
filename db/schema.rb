@@ -30,20 +30,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_21_103423) do
     t.index ["title"], name: "index lists title"
   end
 
-  create_table "projects", force: :cascade do |t|
-    t.string "title"
-    t.string "color"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.index ["title"], name: "index projects title"
-    t.index ["user_id"], name: "index_projects_on_user_id"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
 end
