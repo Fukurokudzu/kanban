@@ -13,10 +13,10 @@ class CardController < ApplicationController
   private
 
   def cards_collection
-    @cards = Card.all
+    @cards = Card.where(list_id: card_params[:list_id])
   end
 
   def card_params
-    params.permit(:id, :title, :description)
+    params.permit(:id, :title, :description, :list_id)
   end
 end

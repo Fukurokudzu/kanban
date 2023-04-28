@@ -1,15 +1,14 @@
 <template>
-  <div class="home">
-    <h1>Home</h1>
-    <Lists />
+  <div class="container">
+    <AllLists />
   </div>
 </template>
 <script>
-import Lists from '../components/Lists'
+import AllLists from '../components/AllLists.vue'
 
 export default {
   name: 'Home',
-  components: { Lists },
+  components: { AllLists },
   setup() {
 
   }
